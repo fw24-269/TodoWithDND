@@ -29,16 +29,10 @@ function TodoList() {
 
   const handleDrop = async (id, newStatus) => {
     const todoIndex = todos.findIndex(todo => todo.id === id);
-    
       const updatedTodos = [...todos];
       updatedTodos[todoIndex] = { ...updatedTodos[todoIndex], status: newStatus };
-      
-     
       await axios.put(`https://todo-c468f-default-rtdb.asia-southeast1.firebasedatabase.app/todo/${id}.json`, updatedTodos[todoIndex]);
-
-    
       setTodos(updatedTodos);
- 
   };
 
   useEffect(() => {
